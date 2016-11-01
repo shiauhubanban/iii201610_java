@@ -24,6 +24,6 @@ public class PokerV2 {
         System.out.println("----");
         System.out.println(System.currentTimeMillis() - start);
         //發牌
-        //攤牌(理排)
+        //攤牌(理牌)
     }
 }

@@ -5,6 +5,6 @@ public class PokerV3 {
         int[] poker = new int[52];
         for(int i=0; i<poker.length;i++) poker[i]=i;
         //發牌
-        //攤牌(理排)
+        //攤牌(理牌)
     }
 }
