@@ -19,7 +19,7 @@ public class PokerV4 {
                 }
             }while(isRepeat);
                 poker[i] = temp;
-                System.out.println(poker[i]);
+              //  System.out.println(poker[i]);
         }
         System.out.println("----");
         System.out.println(System.currentTimeMillis() - start);
@@ -29,9 +29,14 @@ public class PokerV4 {
         for(int i=0 ;i<poker.length; i++){
             players[i%4][i/4] = poker[i];
         }
-        for(int v :players[0]){
-            System.out.println(v);
+        for(int[] player : players){
+            for(int card : player){
+                System.out.print(card + " ");
+            }
+            System.out.println();
         }
         //攤牌(理排)
+
+
     }
 }
