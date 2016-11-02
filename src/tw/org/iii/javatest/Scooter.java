@@ -1,6 +1,8 @@
 package tw.org.iii.javatest;
 public class Scooter extends Bike{
-    public static void main(String[] args){
-        Scooter s1 = new Scooter() ;
+    Scooter(){
+        // super();
+        super(1);
+        System.out.println("Scooter()");
     }
 }
