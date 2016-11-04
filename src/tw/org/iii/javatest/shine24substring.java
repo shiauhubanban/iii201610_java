@@ -1,7 +1,7 @@
 package tw.org.iii.javatest;
 public class shine24substring {
   public static void main(String[] args){
-      String id ="A223456789";
+      String id ="B120863158";
       String s1 = (id.substring(4));
       System.out.println(s1);
       String s2 = (id.substring(4,7));
