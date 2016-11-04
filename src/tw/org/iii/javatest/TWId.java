@@ -2,30 +2,42 @@ package tw.org.iii.javatest;
 
 public class TWId {
     private String id;
-
+    private static final String Letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";   // 按照身分證規則
     public TWId(){
-
+        this(Letters.charAt((int)(Math.random()*26)),
+                ((int)(Math.random()*2)==0?true:false));    //step3
     }
     public TWId(char area){
-
+        this(area, ((int)(Math.random()*2)==0?true:false));  //2
     }
     public TWId(boolean isMale){
-
+        this(Letters.charAt((int)(Math.random()*26)), isMale);   //1
     }
     public TWId(char area, boolean isMale){
-
+        id = "" + area;
+        id += isMale?"1":"2";
+        for(int i=2; i<=8; i++){
+            id += (int)(Math.random()*10);
+        }
+        for(int i=0;i<=10;i++){
+            if(isCheckOk(id+i)) {
+                //
+                id = id + i;
+                break;
+            }
+        }
     }
     public TWId(String id){
         this.id = id;
     }
 
-    public  boolean isCheckOk(){
-        String letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";   // 按照身分證規則
+    public static boolean isCheckOk(String id){           //???
+
         boolean ret = false;
         if(ret = id.matches("^[A-Z][12][0-9]{8}$")){    //正規表示法
             //編碼規則
             char c0 = id.charAt(0);
-            int p0 = letters.indexOf(c0) + 10;
+            int p0 = Letters.indexOf(c0) + 10;
             //System.out.println(p0);
             int n1 = p0 / 10;
             int n2 = p0 % 10;
