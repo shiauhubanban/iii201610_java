@@ -4,7 +4,7 @@ public class TWId {
     private String id;
     private static final String Letters = "ABCDEFGHJKLMNPQRSTUVXYWZIO";   // 按照身分證規則
     public TWId(){
-        this(Letters.charAt((int)(Math.random()*26)),
+        this(Letters.charAt((int)(Math.random()*26)),   //this 只能在第一段敘述
                 ((int)(Math.random()*2)==0?true:false));    //step3
     }
     public TWId(char area){
