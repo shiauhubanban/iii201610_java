@@ -7,7 +7,7 @@ public class shine32 {
         try{
             FileReader reader = new FileReader("dir1/file1");
             int c;
-            while ((c = reader.read()) != -1){
+            while ((c = reader.read()) != -1){   //只有文字用這種方法
                 System.out.print((char)c);
             }
             reader.close();
