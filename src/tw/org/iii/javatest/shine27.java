@@ -2,8 +2,10 @@ package tw.org.iii.javatest;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class shine27 extends JFrame {
+public class shine27 extends JFrame implements ActionListener{
     private JButton newFile, openFile, saveFile, saveAsFile, exit;
     private JTextArea editor;
 
@@ -19,6 +21,15 @@ public class shine27 extends JFrame {
         exit = new JButton("Exit");
         editor = new JTextArea();
 
+        newFile.addActionListener(new MyLister());
+        newFile.addActionListener(this);
+        newFile.addActionListener(new ActionListener() {
+              @Override
+              public void actionPerformed(ActionEvent actionEvent) {
+                  System.out.println("C");
+              }
+          });
+
         JPanel top = new JPanel(new FlowLayout());
         top.add(newFile);top.add(openFile);top.add(saveFile);
         top.add(saveAsFile);top.add(exit);
@@ -33,5 +44,16 @@ public class shine27 extends JFrame {
     }
     public static void main(String[] args){
         new shine27();
+    }
+
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        System.out.println("B");
+    }
+}
+class MyLister implements ActionListener{
+    @Override
+    public void actionPerformed(ActionEvent actionEvent) {
+        System.out.println("A");
     }
 }
