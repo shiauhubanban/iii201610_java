@@ -21,7 +21,9 @@ public class shine36 {
     }
 }
 class Student implements Serializable{
-    int ch, math, eng;
+    int ch;
+    transient int math;//不想序列化的話加上transient
+    int eng;
     String name;
     Student(String name,int ch, int math, int eng){
         this.name = name;
