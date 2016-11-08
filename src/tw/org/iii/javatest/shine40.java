@@ -15,6 +15,11 @@ public class shine40 {
                     new DatagramPacket(buf, buf.length);
             socket.receive(packet);
             socket.close();
+            String urip = packet.getAddress().getHostAddress();
+            int len = packet.getLength();
+            byte[] mesg = packet.getData();
+
+            System.out.println(urip + ";" + new String(mesg,0,len));
         } catch (Exception e) {
             e.printStackTrace();
         }
