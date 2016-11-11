@@ -1,6 +1,7 @@
 package tw.org.iii.javatest;
 
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.TreeSet;
 
 public class shine49 {
@@ -17,5 +18,15 @@ public class shine49 {
 //        set.add(12);
 //        set.add("andy");
         System.out.println(set.toString());
+        System.out.println("------------");
+        LinkedList list = new LinkedList(); //有順序 可重複
+        list.add(1);  //0
+        list.add(2);      //1
+        list.add(3);     //2
+        list.add(4);      //3
+        list.add(5);    //4
+        System.out.println(list.toString());
+
+
     }
 }
