@@ -16,7 +16,7 @@ public class shine43 {
             String urip = socket.getInetAddress().getHostAddress();
             System.out.println(urip + ":");
 
-            FileOutputStream fout = new FileOutputStream("upload/" + urip + ".jpg");
+            FileOutputStream fout = new FileOutputStream("upload/"+ urip +".jpg");
             InputStream in = socket.getInputStream();
             int b;
             while ( (b = in.read()) != -1){
