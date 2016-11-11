@@ -2,9 +2,14 @@ package tw.org.iii.javatest;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseMotionListener;
 
-public class MyPanel extends JPanel {  //類別
-//    public MyPanel(){
+public class MyPanel extends JPanel implements MouseMotionListener {  //類別
+
+     public MyPanel(){
+         addMouseMotionListener(this); 
+     }
 //        System.out.println("MyPaint()");
 //    }
 //    @Override
@@ -27,6 +32,17 @@ public class MyPanel extends JPanel {  //類別
 
        // g2d.drawOval(100,100, 40,40);
        // g2d.fillOval(200,200, 40,40);
-        g2d.drawLine(0,0, 300,300);
+        // g2d.drawLine(0,0, 300,300);
+    }
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        int x = e.getX(); int y = e.getY();
+        System.out.println( x + " x " + y);  //抓點的位置
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
     }
 }
