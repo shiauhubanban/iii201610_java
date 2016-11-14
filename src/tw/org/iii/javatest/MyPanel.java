@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 public class MyPanel extends JPanel{  //類別
-     private LinkedList<LinkedList<HashMap<String ,Integer>>> lines = null;  //很多條線
+     private LinkedList<LinkedList<HashMap<String ,Integer>>> lines,recycle;  //很多條線
      //private MyMouseListener myMouseListener;
 
      public MyPanel(){
@@ -17,6 +17,7 @@ public class MyPanel extends JPanel{  //類別
          addMouseMotionListener(myMouseListener);
          addMouseListener(myMouseListener);
          lines = new LinkedList<>();
+         recycle = new LinkedList<>();
      }
 //        System.out.println("MyPaint()");
 //    }
@@ -75,5 +76,18 @@ public class MyPanel extends JPanel{  //類別
     void clear(){      //對外提供
         lines.clear();
         repaint();
+    }
+
+    void undo(){
+        if(lines.size()>0) {
+            recycle.add(lines.removeLast());
+            repaint();
+        }
+    }
+    void redo(){
+        if(recycle.size()>0) {        //
+            lines.add(recycle.removeLast());
+            repaint();
+        }
     }
 }

@@ -28,6 +28,20 @@ public class MyPainter extends JFrame {
             }
         });
 
+        undo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                myPanel.undo();
+            }
+        });
+
+        redo.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                myPanel.redo();
+            }
+        });
+
         setSize(800, 600);
         setVisible(true);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
