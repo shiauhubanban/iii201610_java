@@ -71,6 +71,9 @@ public class MyPanel extends JPanel{  //類別
             repaint();
             // System.out.println( x + " x " + y);  //抓點的位置
         }
-
+    }
+    void clear(){      //對外提供
+        lines.clear();
+        repaint();
     }
 }
