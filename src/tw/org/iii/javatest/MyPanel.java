@@ -2,16 +2,20 @@ package tw.org.iii.javatest;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-public class MyPanel extends JPanel implements MouseMotionListener {  //類別
+public class MyPanel extends JPanel{  //類別
      private LinkedList<HashMap<String ,Integer>> line;
+     private MyMouseListener myMouseListener;
 
      public MyPanel(){
-         addMouseMotionListener(this);
+         myMouseListener = new MyMouseListener();
+         addMouseMotionListener(myMouseListener);
+         addMouseListener(myMouseListener);
          line = new LinkedList<>();
      }
 //        System.out.println("MyPaint()");
@@ -43,18 +47,16 @@ public class MyPanel extends JPanel implements MouseMotionListener {  //類別
         // g2d.drawLine(0,0, 300,300);
     }
 
-    @Override
-    public void mouseDragged(MouseEvent e) {
-        int x = e.getX(); int y = e.getY();
-        HashMap<String,Integer> point = new HashMap<>();  //建立出來的
-        point.put("x", x); point.put("y", y);  //放進去
-        line.add(point);
-        repaint();
-       // System.out.println( x + " x " + y);  //抓點的位置
-    }
-
-    @Override
-    public void mouseMoved(MouseEvent e) {
+    private  class  MyMouseListener extends MouseAdapter{ //類別中的類別  內部類別
+        @Override
+        public void mouseDragged(MouseEvent e) {
+            int x = e.getX(); int y = e.getY();
+            HashMap<String,Integer> point = new HashMap<>();  //建立出來的
+            point.put("x", x); point.put("y", y);  //放進去
+            line.add(point);
+            repaint();
+            // System.out.println( x + " x " + y);  //抓點的位置
+        }
 
     }
 }
